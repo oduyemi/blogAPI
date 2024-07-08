@@ -12,8 +12,15 @@ import registerRoutes from "./routes/registerRoute";
 import userRoutes from './routes/userRoutes';
 import otpRoutes from './routes/otpRoutes';
 import postRoutes from "./routes/postRoutes";
+import tagRoutes from './routes/tagRoutes';
+import postTagRoutes from './routes/postTagRoutes';
+import notificationRoutes from './routes/notificationRoutes';
+import mediaRoutes from './routes/mediaRoutes';
+import settingRoutes from './routes/settingRoutes';
+import followRoutes from './routes/followRoutes';
 import AppError from "./utils/appError";
 import upload from "./middlewares/upload.middleware";
+
 
 
 dotenv.config();
@@ -42,14 +49,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-app.use("/v1", authRoutes);
-app.use("/v1", registerRoutes);
-app.use('/v1', loginRoutes);
-app.use('/v1/otp', otpRoutes);
-app.use('/v1/', userRoutes);
-app.use('/v1/likes', likeRoutes);
-app.use('/v1/posts', postRoutes);
-app.use('/v1/comments', commentRoutes);
+app.use("/api/v1", authRoutes);
+app.use("/api/v1", registerRoutes);
+app.use('/api/v1', loginRoutes);
+app.use('/api/v1/otp', otpRoutes);
+app.use('/api/v1', userRoutes);
+app.use('/api/v1/likes', likeRoutes);
+app.use('/api/v1/posts', postRoutes);
+app.use('/api/v1/comments', commentRoutes);
+app.use('/api/v1', tagRoutes);
+app.use('/api/v1', postTagRoutes);
+app.use('/api/v1', notificationRoutes);
+app.use('/api/v1', mediaRoutes);
+app.use('/api/v1', settingRoutes);
+app.use('/api/v1', followRoutes);
 
 app.all("*", (req, res, next) => {
   next(

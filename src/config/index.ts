@@ -3,7 +3,7 @@ import session from 'express-session';
 import MongoDBSessionStore from 'connect-mongodb-session';
 require('dotenv').config();
 
-const mongoDBURI: string = process.env.MONGODB_URI !== undefined ? process.env.MONGODB_URI : "mongodb://127.0.0.1:27017/cookconnectdb";
+const mongoDBURI: string = process.env.MONGODB_URI !== undefined ? process.env.MONGODB_URI : "mongodb://127.0.0.1:27017/blogdb";
 
 mongoose
   .connect(mongoDBURI)
