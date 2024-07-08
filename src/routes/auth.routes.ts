@@ -1,5 +1,5 @@
 import express from "express";
-import { initiatePasswordReset, resetPassword } from "../controllers/authController";
+import { initiatePasswordReset, resetPassword } from "../controllers/auth.controller";
 import { passwordResetValidationRules, validate } from "../middlewares/Validators";
 
 const router = express.Router();
