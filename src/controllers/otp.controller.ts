@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-import TemporaryUser from '../models/temporaryUser';
-import User from '../models/user';
+import TemporaryUser from "../models/temporaryUser";
+import User from "../models/user";
 
 export const verifyOTP = async (req: Request, res: Response) => {
     try {

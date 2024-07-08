@@ -1,10 +1,10 @@
-import express from 'express';
-import { likePost, unlikePost } from '../controllers/like.controller';
-import { protect } from '../middlewares/auth.middleware';
+import express from "express";
+import { likePost, unlikePost } from "../controllers/like.controller";
+import { protect } from "../middlewares/auth.middleware";
 
 const router = express.Router();
 
-router.post('/like/:postId', protect, likePost);
-router.delete('/unlike/:postId', protect, unlikePost);
+router.post("/like/:postId", protect, likePost);
+router.delete("/unlike/:postId", protect, unlikePost);
 
 export default router;

@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from "mongoose";
-import { IPost } from './post';
+import { IPost } from "./post";
 
 export interface IUser extends Document {
   _id: mongoose.Types.ObjectId;
@@ -14,7 +14,7 @@ export interface IUser extends Document {
   resetToken?: string | null;
   resetExpires?: Date | null;
   updatedAt: Date;
-  posts: IPost['_id'][];
+  posts: IPost["_id"][];
   followers: mongoose.Types.ObjectId[];
   following: mongoose.Types.ObjectId[];
 }
@@ -74,17 +74,17 @@ const userSchema: Schema<IUser> = new Schema({
 
   posts: [{ 
     type: Schema.Types.ObjectId, 
-    ref: 'Post' 
+    ref: "Post" 
   }],
 
   followers: [{ 
     type: Schema.Types.ObjectId, 
-    ref: 'User' 
+    ref: "User" 
   }],
 
   following: [{ 
     type: Schema.Types.ObjectId, 
-    ref: 'User' 
+    ref: "User" 
   }]
 
 }, {
@@ -93,9 +93,9 @@ const userSchema: Schema<IUser> = new Schema({
 });
 
 // Hash password before saving the user
-userSchema.pre('save', async function (next) {
-  if (this.isModified('password')) {
-    const bcrypt = await import('bcrypt'); 
+userSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    const bcrypt = await import("bcrypt"); 
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
   }

@@ -1,11 +1,11 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
 import bcrypt from "bcrypt";
 import rateLimit from "express-rate-limit";
-import User from '../models/user';
+import User from "../models/user";
 
 require("dotenv").config();
 

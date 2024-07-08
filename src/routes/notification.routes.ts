@@ -1,9 +1,9 @@
-import express from 'express';
-import { createNotification } from '../controllers/notification.controller';
+import express from "express";
+import { createNotification } from "../controllers/notification.controller";
 
 const router = express.Router();
 
-router.post('/notifications', createNotification);
+router.post("/notifications", createNotification);
 
 // Add more routes like getAllNotifications, getNotificationById, markAsRead, deleteNotification if needed
 
