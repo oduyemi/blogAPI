@@ -60,7 +60,7 @@ app.use("/api/v1/posts", postRoutes);
 app.use("/api/v1/comments", commentRoutes);
 app.use("/api/v1", tagRoutes);
 app.use("/api/v1", postTagRoutes);
-app.use("/api/v1", notificationRoutes);
+app.use("/api/v1/notifications", notificationRoutes);
 app.use("/api/v1", mediaRoutes);
 app.use("/api/v1", settingRoutes);
 app.use("/api/v1", followRoutes);

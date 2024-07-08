@@ -58,6 +58,23 @@ export const getNotificationById = async (req: Request, res: Response) => {
     }
 };
 
+export const getNotificationByUserId = async (req: Request, res: Response) => {
+    try {
+        const userId = req.params.userId;
+
+        const notifications: INotification[] = await Notification.find({ userId });
+
+        if (notifications.length === 0) {
+            return res.status(404).json({ message: "Notifications not found for this user" });
+        } else {
+            return res.json({ data: notifications });
+        }
+    } catch (error) {
+        console.error("Error fetching data from the database", error);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+};
+
 export const markAsRead = async (req: Request, res: Response) => {
     try {
         const userId = req.session.user?.userID;
