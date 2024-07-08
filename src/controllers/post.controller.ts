@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
 import { Types } from 'mongoose';
 import Post, { IPost } from '../models/post';
-import path from 'path';
-import fs from 'fs';
+
 
 export const createPost = async (req: Request, res: Response) => {
     try {

@@ -12,7 +12,7 @@ dotenv.config();
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
 const JWT_SECRET = process.env.JWT_SECRET;
-const FRONTEND_URL = process.env.FRONTEND_URL || "https://cookconnect.vercel.app/verify";
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 if (!SMTP_USER || !SMTP_PASS) {
     throw new Error("SMTP_USER or SMTP_PASS is not defined. Check your .env file.");

@@ -2,7 +2,7 @@ import mongoose, { Document, Schema } from "mongoose";
 
 export interface ICategory extends Document {
   _id: mongoose.Types.ObjectId;
-  name: string;
+  name: "fashion" | "food" | "lifestyle" | "travel";
   slug: string;
   desc: string;
   createdAt: Date;

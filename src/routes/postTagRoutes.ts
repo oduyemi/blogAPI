@@ -1,5 +1,5 @@
 import express from 'express';
-import { createPostTag } from '../controllers/postTagController';
+import { createPostTag } from '../controllers/postTag.controller';
 
 const router = express.Router();
 

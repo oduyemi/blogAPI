@@ -1,5 +1,5 @@
 import express from 'express';
-import { likePost, unlikePost } from '../controllers/likeController';
+import { likePost, unlikePost } from '../controllers/like.controller';
 import { protect } from '../middlewares/auth.middleware';
 
 const router = express.Router();

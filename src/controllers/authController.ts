@@ -19,6 +19,8 @@ interface UserSession {
     createdAt?: Date;
     lastLogin?: Date;
     updatedAt?: Date;
+    following?: mongoose.Types.ObjectId[];
+    followers?: mongoose.Types.ObjectId[];
 }
 
 declare module "express-session" {

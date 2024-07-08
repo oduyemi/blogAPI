@@ -1,5 +1,5 @@
 import express from 'express';
-import { createFollow } from '../controllers/followController';
+import { createFollow } from '../controllers/follow.controller';
 
 const router = express.Router();
 

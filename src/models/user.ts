@@ -15,6 +15,8 @@ export interface IUser extends Document {
   resetExpires?: Date | null;
   updatedAt: Date;
   posts: IPost['_id'][];
+  followers: mongoose.Types.ObjectId[];
+  following: mongoose.Types.ObjectId[];
 }
 
 const userSchema: Schema<IUser> = new Schema({
@@ -66,30 +68,37 @@ const userSchema: Schema<IUser> = new Schema({
     default: null,
   },
 
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-
   lastLogin: {
     type: Date,
-  },
-
-  updatedAt: {
-    type: Date,
-    default: Date.now,
   },
 
   posts: [{ 
     type: Schema.Types.ObjectId, 
     ref: 'Post' 
+  }],
+
+  followers: [{ 
+    type: Schema.Types.ObjectId, 
+    ref: 'User' 
+  }],
+
+  following: [{ 
+    type: Schema.Types.ObjectId, 
+    ref: 'User' 
   }]
-  
+
+}, {
+  timestamps: true 
+
 });
 
-
-userSchema.pre('save', function (next) {
-  this.updatedAt = new Date();
+// Hash password before saving the user
+userSchema.pre('save', async function (next) {
+  if (this.isModified('password')) {
+    const bcrypt = await import('bcrypt'); 
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+  }
   next();
 });
 
